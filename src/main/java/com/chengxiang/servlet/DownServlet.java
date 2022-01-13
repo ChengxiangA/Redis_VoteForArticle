@@ -15,6 +15,8 @@ public class DownServlet extends HttpServlet {
         String articleId = req.getParameter("articleId");
         String uid = "" + new Random().nextInt(10000);
         JedisUtil.downArticle(articleId,uid);
+        String sortId = req.getParameter("sortId");
+        resp.sendRedirect("sort?sortId=" + sortId);
         System.out.println("用户" + uid + "拉踩了文章" + articleId);
     }
 

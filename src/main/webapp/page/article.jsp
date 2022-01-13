@@ -15,6 +15,7 @@
         }
         table {
             width: 1000px;
+            margin: auto;
         }
         img {
             width: 200px;
@@ -38,8 +39,9 @@
             <div class="article">
                 <table>
                     <tr>
-                        <td>
-                            <a href="http://localhost:8080/vote/up?articleId=${article.articleId}"><img src="img/up.png"></a>
+                        <td width="200px">
+                            <a href="http://localhost:8080/vote/up?articleId=${article.articleId}&sortId=${param.sortId}"><img class="click" src="img/up.png"></a>
+                            <label>${article.articleUpNum}人点赞过</label>
                         </td>
                         <td rowspan="2">
                             <div>
@@ -51,8 +53,9 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>
-                            <a href="http://localhost:8080/vote/down?articleId=${article.articleId}"><img src="img/down.png"></a>
+                        <td width="200px">
+                            <a href="http://localhost:8080/vote/down?articleId=${article.articleId}&sortId=${param.sortId}"><img class="click" src="img/down.png"></a>
+                            <label>${article.articleDownNum}人拉踩过</label>
                         </td>
                     </tr>
                 </table>

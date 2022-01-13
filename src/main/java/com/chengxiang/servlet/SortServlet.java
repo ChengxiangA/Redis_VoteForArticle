@@ -31,7 +31,10 @@ public class SortServlet extends HttpServlet {
         List<Article> articles = new ArrayList<>();
         for(String articleId: articlesId) {
             String[] split = articleId.split(":");
-            articles.add(StoreArticles.getArticles(split[1]));
+            Article article = StoreArticles.getArticles(split[1]);
+            article.setArticleUpNum(JedisUtil.getUpNum(split[1]));
+            article.setArticleDownNum(JedisUtil.getDownNum(split[1]));
+            articles.add(article);
         }
         req.setAttribute("articles",articles);
         req.getRequestDispatcher("page/article.jsp").forward(req,resp);

@@ -61,4 +61,24 @@ public class JedisUtil {
         Set<String> articles = jedis.zrevrange("vote", 0, -1);
         return articles;
     }
+
+    /**
+     * 获得某文章的点赞数
+     * @param articleId
+     * @return 点赞数
+     */
+    public static Long getUpNum(String articleId) {
+        Jedis jedis = new Jedis("127.0.0.1", 6379);
+        return jedis.scard("upvote:" + articleId);
+    }
+
+    /**
+     * 获得某文章拉踩数
+     * @param articleId
+     * @return 拉踩数
+     */
+    public static Long getDownNum(String articleId) {
+        Jedis jedis = new Jedis("127.0.0.1", 6379);
+        return jedis.scard("downvote:" + articleId);
+    }
 }
