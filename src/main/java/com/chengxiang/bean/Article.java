@@ -7,17 +7,21 @@ public class Article {
     private String articleImg;
     private String articlePushTime;
     private String articlePoster;
-
+    private Long articleUpNum;
+    private Long articleDownNum;
+    
     public Article() {
     }
 
-    public Article(String articleId, String articleName, String articleInfo, String articleImg, String articlePushTime, String articlePoster) {
+    public Article(String articleId, String articleName, String articleInfo, String articleImg, String articlePushTime, String articlePoster, Long articleUpNum, Long articleDownNum) {
         this.articleId = articleId;
         this.articleName = articleName;
         this.articleInfo = articleInfo;
         this.articleImg = articleImg;
         this.articlePushTime = articlePushTime;
         this.articlePoster = articlePoster;
+        this.articleUpNum = articleUpNum;
+        this.articleDownNum = articleDownNum;
     }
 
     public String getArticleId() {
@@ -68,6 +72,22 @@ public class Article {
         this.articlePoster = articlePoster;
     }
 
+    public Long getArticleUpNum() {
+        return articleUpNum;
+    }
+
+    public void setArticleUpNum(Long articleUpNum) {
+        this.articleUpNum = articleUpNum;
+    }
+
+    public Long getArticleDownNum() {
+        return articleDownNum;
+    }
+
+    public void setArticleDownNum(Long articleDownNum) {
+        this.articleDownNum = articleDownNum;
+    }
+
     @Override
     public String toString() {
         return "Article{" +
@@ -77,6 +97,8 @@ public class Article {
                 ", articleImg='" + articleImg + '\'' +
                 ", articlePushTime='" + articlePushTime + '\'' +
                 ", articlePoster='" + articlePoster + '\'' +
+                ", articleUpNum=" + articleUpNum +
+                ", articleDownNum=" + articleDownNum +
                 '}';
     }
 }

@@ -15,6 +15,8 @@ public class UpServlet extends HttpServlet {
         String articleId = req.getParameter("articleId");
         String uid = "" + new Random().nextInt(10000);
         JedisUtil.upArticle(articleId,uid);
+        String sortId = req.getParameter("sortId");
+        resp.sendRedirect("sort?sortId=" + sortId);
         System.out.println("用户" + uid + "点赞了文章" + articleId);
     }
 
